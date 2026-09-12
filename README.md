@@ -33,7 +33,7 @@ O projeto está sendo construído utilizando as seguintes tecnologias básicas d
 
 ---
 
-## 🎨 Identidade Visual e Regras do App
+## Identidade Visual e Regras do App
 *   **Cores:** Identidade moderna mantendo o uso de **Azul-marinho, Branco e Laranja**.
 *   **Simplicidade Total:** O sistema **não é um ERP** cheio de telas complicadas. Ele é focado apenas no orçamento.
 *   **Linguagem Clara:** Textos simples, sem termos técnicos difíceis ou cadastros burocráticos obrigatórios.
