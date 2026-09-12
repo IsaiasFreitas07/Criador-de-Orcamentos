@@ -1,0 +1,818 @@
+
+/* =========================================================
+   ORÇAOBRA — STYLE.CSS
+   Estilo visual aplicado à estrutura HTML atual
+   ========================================================= */
+
+:root {
+    --azul: #10182f;
+    --azul-2: #182442;
+    --azul-3: #243252;
+    --laranja: #f28c28;
+    --laranja-hover: #dc7616;
+    --laranja-claro: #fff3e6;
+
+    --fundo: #f5f7fb;
+    --branco: #ffffff;
+    --texto: #182033;
+    --texto-2: #687086;
+    --texto-3: #969dac;
+
+    --borda: #e4e8ef;
+    --borda-clara: #edf0f4;
+
+    --verde: #17845b;
+    --verde-fundo: #e9f7f0;
+    --vermelho: #d64b4b;
+    --vermelho-fundo: #fff0f0;
+
+    --sombra: 0 8px 25px rgba(16, 24, 47, .07);
+    --sombra-leve: 0 2px 10px rgba(16, 24, 47, .05);
+
+    --raio: 12px;
+    --raio-grande: 18px;
+    --transicao: .2s ease;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+    height: 72px;
+    background: var(--branco);
+    border-bottom: 1px solid var(--borda);
+    display: flex;
+    align-items: center;
+    padding: 0 42px;
+    gap: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(16, 24, 47, .04);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 185px;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -.5px;
+    color: var(--azul);
+}
+
+.logo img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    border-radius: 9px;
+}
+
+.logo span {
+    color: var(--azul);
+}
+
+.logo span::first-letter {
+    color: var(--laranja);
+}
+
+/* MENU */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+}
+
+.menu a {
+    padding: 9px 14px;
+    border-radius: 8px;
+    color: var(--texto-2);
+    font-size: 14px;
+    font-weight: 600;
+    transition: var(--transicao);
+}
+
+.menu a:hover {
+    color: var(--azul);
+    background: #f4f6fa;
+}
+
+.menu a.active {
+    color: var(--azul);
+    background: var(--laranja-claro);
+}
+
+/* BOTÃO NOVO */
+.btn-novo,
+.btn-principal {
+    border: none;
+    background: var(--laranja);
+    color: #fff;
+    font-weight: 700;
+    border-radius: 9px;
+    padding: 11px 18px;
+    min-height: 43px;
+    box-shadow: 0 4px 12px rgba(242, 140, 40, .22);
+    transition: var(--transicao);
+}
+
+.btn-novo:hover,
+.btn-principal:hover {
+    background: var(--laranja-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(242, 140, 40, .28);
+}
+
+.btn-novo:active,
+.btn-principal:active {
+    transform: translateY(0);
+}
+
+/* BOTÃO SECUNDÁRIO */
+.btn-secundario {
+    border: 1px solid var(--borda);
+    background: #fff;
+    color: var(--azul);
+    font-weight: 700;
+    border-radius: 9px;
+    padding: 11px 18px;
+    min-height: 43px;
+    transition: var(--transicao);
+}
+
+.btn-secundario:hover {
+    background: #f7f8fb;
+    border-color: #d5dae3;
+}
+
+/* =========================================================
+   CONTEÚDO
+   ========================================================= */
+
+main {
+    width: 100%;
+}
+
+.dashboard,
+.tela-orcamento {
+    width: min(1240px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.dashboard {
+    padding: 42px 0 60px;
+}
+
+.dashboard-texto {
+    background: linear-gradient(135deg, var(--azul) 0%, var(--azul-2) 100%);
+    color: white;
+    border-radius: var(--raio-grande);
+    padding: 45px 48px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    margin-bottom: 25px;
+}
+
+.dashboard-texto::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(242, 140, 40, .10);
+    right: -100px;
+    top: -150px;
+}
+
+.dashboard-texto::after {
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    border: 35px solid rgba(255,255,255,.035);
+    right: 120px;
+    bottom: -110px;
+}
+
+.dashboard-texto > * {
+    position: relative;
+    z-index: 1;
+}
+
+.subtitulo {
+    color: var(--laranja);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    margin-bottom: 11px;
+}
+
+.dashboard-texto h1 {
+    max-width: 650px;
+    font-size: clamp(29px, 4vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -1.2px;
+    margin-bottom: 15px;
+}
+
+.descricao {
+    max-width: 580px;
+    color: rgba(255,255,255,.72);
+    font-size: 15px;
+    margin-bottom: 27px;
+}
+
+.dashboard-texto .btn-principal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================================================
+   CARDS DO DASHBOARD
+   ========================================================= */
+
+.cards-dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 21px;
+    box-shadow: var(--sombra-leve);
+    min-height: 112px;
+    transition: var(--transicao);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sombra);
+}
+
+.card span {
+    display: block;
+    color: var(--texto-2);
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.card strong {
+    display: block;
+    color: var(--azul);
+    font-size: 27px;
+    line-height: 1.1;
+    letter-spacing: -.5px;
+}
+
+/* =========================================================
+   ORÇAMENTOS RECENTES
+   ========================================================= */
+
+.orcamentos-recentes {
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-grande);
+    padding: 26px;
+    box-shadow: var(--sombra-leve);
+}
+
+.orcamentos-recentes h2 {
+    font-size: 18px;
+    color: var(--azul);
+    margin-bottom: 19px;
+}
+
+#listaOrcamentos > p {
+    padding: 28px;
+    text-align: center;
+    color: var(--texto-3);
+    background: #fafbfc;
+    border: 1px dashed var(--borda);
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+/* =========================================================
+   TELA DE ORÇAMENTO
+   ========================================================= */
+
+.tela-orcamento {
+    display: none;
+    padding: 34px 0 60px;
+}
+
+/* =========================================================
+   PROGRESSO
+   ========================================================= */
+
+.progresso {
+    display: flex;
+    align-items: center;
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-grande);
+    padding: 8px;
+    margin-bottom: 20px;
+    box-shadow: var(--sombra-leve);
+    overflow-x: auto;
+}
+
+.progresso span {
+    flex: 1;
+    min-width: 115px;
+    text-align: center;
+    padding: 11px 8px;
+    color: var(--texto-3);
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 9px;
+    white-space: nowrap;
+    transition: var(--transicao);
+}
+
+.progresso .etapa-ativa {
+    background: var(--laranja-claro);
+    color: var(--laranja);
+}
+
+/* =========================================================
+   ETAPAS
+   ========================================================= */
+
+.etapa {
+    display: none;
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-grande);
+    padding: 34px;
+    box-shadow: var(--sombra-leve);
+}
+
+.etapa.ativa {
+    display: block;
+}
+
+.etapa h2 {
+    color: var(--azul);
+    font-size: 22px;
+    letter-spacing: -.4px;
+    margin-bottom: 6px;
+}
+
+.etapa > p {
+    color: var(--texto-2);
+    font-size: 14px;
+    margin-bottom: 27px;
+}
+
+/* =========================================================
+   FORMULÁRIOS
+   ========================================================= */
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 19px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.campo-grande {
+    grid-column: 1 / -1;
+}
+
+.campo label {
+    color: var(--texto);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+    background: #fff;
+    color: var(--texto);
+    outline: none;
+    font-size: 14px;
+    transition: var(--transicao);
+}
+
+input,
+select {
+    height: 46px;
+    padding: 0 13px;
+}
+
+textarea {
+    min-height: 115px;
+    padding: 12px 13px;
+    resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #a3a9b5;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: #d2d7e0;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--laranja);
+    box-shadow: 0 0 0 3px rgba(242,140,40,.11);
+}
+
+/* =========================================================
+   AÇÕES
+   ========================================================= */
+
+.acoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px solid var(--borda-clara);
+}
+
+/* =========================================================
+   LISTA DE SERVIÇOS / MATERIAIS
+   ========================================================= */
+
+#btnAdicionarServico,
+#btnAdicionarMaterial {
+    margin-bottom: 3px;
+}
+
+.lista-itens {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.lista-itens:empty {
+    min-height: 105px;
+    border: 1px dashed var(--borda);
+    border-radius: 10px;
+    background: #fafbfc;
+    position: relative;
+}
+
+.lista-itens:empty::after {
+    content: "Nenhum item adicionado ainda";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--texto-3);
+    font-size: 13px;
+}
+
+/* =========================================================
+   RESUMO FINANCEIRO
+   ========================================================= */
+
+.resumo-financeiro {
+    max-width: 720px;
+    margin: 5px auto 0;
+    background: #fafbfc;
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 8px 22px 22px;
+}
+
+.resumo-financeiro > div:not(.campo):not(.total-final) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--borda-clara);
+}
+
+.resumo-financeiro span {
+    color: var(--texto-2);
+    font-size: 14px;
+}
+
+.resumo-financeiro strong {
+    color: var(--azul);
+    font-size: 15px;
+}
+
+.resumo-financeiro .campo {
+    padding: 16px 0 5px;
+}
+
+.resumo-financeiro .campo input {
+    max-width: 180px;
+}
+
+/* TOTAL */
+.total-final {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+    padding: 19px 18px;
+    background: var(--azul);
+    border-radius: 11px;
+}
+
+.total-final span {
+    color: #fff;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: .6px;
+}
+
+.total-final strong {
+    color: var(--laranja);
+    font-size: 25px;
+}
+
+/* =========================================================
+   RESUMO FINAL
+   ========================================================= */
+
+.resumo-orcamento {
+    display: grid;
+    gap: 14px;
+}
+
+.resumo-orcamento > div {
+    background: #fafbfc;
+    border: 1px solid var(--borda);
+    border-radius: 11px;
+    padding: 20px;
+}
+
+/* =========================================================
+   BOTÕES DE AÇÃO — MELHOR VISUAL
+   ========================================================= */
+
+#btnFinalizarOrcamento {
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
+/* =========================================================
+   SELEÇÃO
+   ========================================================= */
+
+::selection {
+    background: rgba(242,140,40,.25);
+    color: var(--azul);
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f3f7;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd0da;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #aeb5c1;
+}
+
+/* =========================================================
+   RESPONSIVO — TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .header {
+        padding: 0 24px;
+        gap: 18px;
+    }
+
+    .logo {
+        min-width: auto;
+    }
+
+    .menu a {
+        padding: 8px 9px;
+        font-size: 13px;
+    }
+
+    .dashboard,
+    .tela-orcamento {
+        width: min(100% - 32px, 900px);
+    }
+
+    .cards-dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================================================
+   RESPONSIVO — CELULAR
+   ========================================================= */
+
+@media (max-width: 720px) {
+
+    .header {
+        height: auto;
+        min-height: 68px;
+        padding: 12px 16px;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        flex: 1;
+    }
+
+    .btn-novo {
+        font-size: 12px;
+        padding: 9px 12px;
+    }
+
+    .menu {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
+    }
+
+    .menu a {
+        white-space: nowrap;
+    }
+
+    .dashboard,
+    .tela-orcamento {
+        width: calc(100% - 24px);
+    }
+
+    .dashboard {
+        padding-top: 20px;
+    }
+
+    .dashboard-texto {
+        padding: 29px 23px;
+        border-radius: 15px;
+    }
+
+    .dashboard-texto h1 {
+        font-size: 28px;
+    }
+
+    .descricao {
+        font-size: 14px;
+    }
+
+    .cards-dashboard {
+        grid-template-columns: 1fr;
+        gap: 11px;
+    }
+
+    .card {
+        min-height: auto;
+    }
+
+    .etapa {
+        padding: 23px 18px;
+        border-radius: 14px;
+    }
+
+    .etapa h2 {
+        font-size: 20px;
+    }
+
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+
+    .campo-grande {
+        grid-column: auto;
+    }
+
+    .acoes {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .acoes button {
+        width: 100%;
+    }
+
+    .progresso {
+        border-radius: 12px;
+    }
+
+    .progresso span {
+        min-width: 105px;
+    }
+
+    .resumo-financeiro {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .total-final strong {
+        font-size: 21px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVO — CELULAR PEQUENO
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .logo img {
+        width: 33px;
+        height: 33px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .dashboard-texto h1 {
+        font-size: 25px;
+    }
+
+    .dashboard-texto .btn-principal {
+        width: 100%;
+    }
+
+    .etapa {
+        padding: 20px 15px;
+    }
+}

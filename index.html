@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <!-- Configurações básicas -->
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>OrçaObra</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         CABEÇALHO
+    ========================================== -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <img
+                src="assets/img/logo.png"
+                alt="Logo OrçaObra"
+            >
+
+            <span>OrçaObra</span>
+
+        </div>
+
+
+        <nav class="menu">
+
+            <a href="#" id="linkInicio">
+                Início
+            </a>
+
+            <a href="#" id="linkOrcamentos">
+                Orçamentos
+            </a>
+
+            <a href="#" id="linkClientes">
+                Clientes
+            </a>
+
+            <a href="#" id="linkPerfil">
+                Meu perfil
+            </a>
+
+        </nav>
+
+
+        <button
+            class="btn-novo"
+            id="btnNovoOrcamento"
+        >
+            + Novo orçamento
+        </button>
+
+    </header>
+
+
+
+    <!-- =========================================
+         CONTEÚDO PRINCIPAL
+    ========================================== -->
+
+    <main>
+
+
+        <!-- =====================================
+             DASHBOARD
+        ====================================== -->
+
+        <section
+            class="dashboard"
+            id="dashboard"
+        >
+
+            <div class="dashboard-texto">
+
+                <p class="subtitulo">
+                    PARA PROFISSIONAIS DA CONSTRUÇÃO
+                </p>
+
+
+                <h1>
+                    Crie seu orçamento profissional
+                    sem complicação.
+                </h1>
+
+
+                <p class="descricao">
+
+                    Monte o orçamento da sua obra,
+                    calcule os valores automaticamente
+                    e gere um PDF profissional.
+
+                </p>
+
+
+                <button
+                    class="btn-principal"
+                    id="btnCriarOrcamento"
+                >
+
+                    + Criar novo orçamento
+
+                </button>
+
+            </div>
+
+
+
+            <!-- CARDS -->
+
+            <div class="cards-dashboard">
+
+
+                <div class="card">
+
+                    <span>
+                        Orçamentos criados
+                    </span>
+
+                    <strong id="totalOrcamentos">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="card">
+
+                    <span>
+                        Orçamentos aprovados
+                    </span>
+
+                    <strong id="totalAprovados">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="card">
+
+                    <span>
+                        Clientes
+                    </span>
+
+                    <strong id="totalClientes">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="card">
+
+                    <span>
+                        Total aprovado
+                    </span>
+
+                    <strong id="valorTotal">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ORÇAMENTOS RECENTES -->
+
+            <div class="orcamentos-recentes">
+
+                <h2>
+                    Orçamentos recentes
+                </h2>
+
+
+                <div id="listaOrcamentos">
+
+                    <p>
+                        Você ainda não criou nenhum orçamento.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             NOVO ORÇAMENTO
+        ====================================== -->
+
+        <section
+            class="tela-orcamento"
+            id="telaOrcamento"
+        >
+
+
+            <!-- BARRA DE PROGRESSO -->
+
+            <div class="progresso">
+
+                <span class="etapa-ativa">
+                    1. Cliente
+                </span>
+
+                <span>
+                    2. Obra
+                </span>
+
+                <span>
+                    3. Serviços
+                </span>
+
+                <span>
+                    4. Materiais
+                </span>
+
+                <span>
+                    5. Valores
+                </span>
+
+                <span>
+                    6. Pagamento
+                </span>
+
+                <span>
+                    7. Revisão
+                </span>
+
+            </div>
+
+
+
+            <!-- =================================
+                 ETAPA 1 — CLIENTE
+            ================================== -->
+
+            <div
+                class="etapa ativa"
+                id="etapaCliente"
+            >
+
+                <h2>
+                    Quem receberá este orçamento?
+                </h2>
+
+                <p>
+                    Informe os dados do seu cliente.
+                </p>
+
+
+                <div class="formulario">
+
+
+                    <div class="campo">
+
+                        <label for="clienteNome">
+                            Nome do cliente *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="clienteNome"
+                            placeholder="Ex.: João da Silva"
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="clienteTelefone">
+                            Telefone / WhatsApp
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="clienteTelefone"
+                            placeholder="(11) 99999-9999"
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="clienteEmail">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="clienteEmail"
+                            placeholder="cliente@email.com"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="acoes">
+
+                    <button
+                        class="btn-principal"
+                        id="btnClienteContinuar"
+                    >
+                        Continuar →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 ETAPA 2 — OBRA
+            ================================== -->
+
+            <div
+                class="etapa"
+                id="etapaObra"
+            >
+
+                <h2>
+                    Conte um pouco sobre a obra
+                </h2>
+
+
+                <div class="formulario">
+
+
+                    <div class="campo">
+
+                        <label for="obraNome">
+                            Nome da obra *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="obraNome"
+                            placeholder="Ex.: Reforma residencial"
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="obraTipo">
+                            Tipo de obra
+                        </label>
+
+                        <select id="obraTipo">
+
+                            <option value="">
+                                Selecione
+                            </option>
+
+                            <option value="Construção">
+                                Construção
+                            </option>
+
+                            <option value="Reforma">
+                                Reforma
+                            </option>
+
+                            <option value="Pintura">
+                                Pintura
+                            </option>
+
+                            <option value="Elétrica">
+                                Elétrica
+                            </option>
+
+                            <option value="Hidráulica">
+                                Hidráulica
+                            </option>
+
+                            <option value="Outro">
+                                Outro
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="obraEndereco">
+                            Endereço
+                        </label>
+
+                        <input
+                            type="text"
+                            id="obraEndereco"
+                            placeholder="Rua, número, bairro..."
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="obraArea">
+                            Área aproximada (m²)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="obraArea"
+                            placeholder="Ex.: 120"
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="obraPrazo">
+                            Prazo estimado
+                        </label>
+
+                        <input
+                            type="text"
+                            id="obraPrazo"
+                            placeholder="Ex.: 30 dias"
+                        >
+
+                    </div>
+
+
+                    <div class="campo campo-grande">
+
+                        <label for="obraDescricao">
+                            Descrição da obra
+                        </label>
+
+                        <textarea
+                            id="obraDescricao"
+                            placeholder="Descreva brevemente o serviço..."
+                        ></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="acoes">
+
+                    <button
+                        class="btn-secundario"
+                        id="btnObraVoltar"
+                    >
+                        ← Voltar
+                    </button>
+
+                    <button
+                        class="btn-principal"
+                        id="btnObraContinuar"
+                    >
+                        Continuar →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 ETAPA 3 — SERVIÇOS
+            ================================== -->
+
+            <div
+                class="etapa"
+                id="etapaServicos"
+            >
+
+                <h2>
+                    O que será feito?
+                </h2>
+
+                <p>
+                    Adicione os serviços que farão parte da obra.
+                </p>
+
+
+                <button
+                    class="btn-principal"
+                    id="btnAdicionarServico"
+                >
+                    + Adicionar serviço
+                </button>
+
+
+                <div
+                    class="lista-itens"
+                    id="listaServicos"
+                >
+
+                    <!-- JavaScript adicionará os serviços aqui -->
+
+                </div>
+
+
+                <div class="acoes">
+
+                    <button
+                        class="btn-secundario"
+                        id="btnServicoVoltar"
+                    >
+                        ← Voltar
+                    </button>
+
+                    <button
+                        class="btn-principal"
+                        id="btnServicoContinuar"
+                    >
+                        Continuar →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 ETAPA 4 — MATERIAIS
+            ================================== -->
+
+            <div
+                class="etapa"
+                id="etapaMateriais"
+            >
+
+                <h2>
+                    Quais materiais serão utilizados?
+                </h2>
+
+
+                <button
+                    class="btn-principal"
+                    id="btnAdicionarMaterial"
+                >
+                    + Adicionar material
+                </button>
+
+
+                <div
+                    class="lista-itens"
+                    id="listaMateriais"
+                >
+
+                    <!-- JavaScript adicionará os materiais -->
+
+                </div>
+
+
+                <div class="acoes">
+
+                    <button
+                        class="btn-secundario"
+                        id="btnMaterialVoltar"
+                    >
+                        ← Voltar
+                    </button>
+
+                    <button
+                        class="btn-principal"
+                        id="btnMaterialContinuar"
+                    >
+                        Continuar →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 ETAPA 5 — VALORES
+            ================================== -->
+
+            <div
+                class="etapa"
+                id="etapaValores"
+            >
+
+                <h2>
+                    Resumo do orçamento
+                </h2>
+
+
+                <div class="resumo-financeiro">
+
+                    <div>
+                        <span>Serviços</span>
+                        <strong id="totalServicos">
+                            R$ 0,00
+                        </strong>
+                    </div>
+
+
+                    <div>
+                        <span>Materiais</span>
+                        <strong id="totalMateriais">
+                            R$ 0,00
+                        </strong>
+                    </div>
+
+
+                    <div>
+                        <span>Subtotal</span>
+                        <strong id="subtotal">
+                            R$ 0,00
+                        </strong>
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="desconto">
+                            Desconto (%)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="desconto"
+                            min="0"
+                            value="0"
+                        >
+
+                    </div>
+
+
+                    <div>
+                        <span>Desconto</span>
+                        <strong id="valorDesconto">
+                            R$ 0,00
+                        </strong>
+                    </div>
+
+
+                    <div class="total-final">
+
+                        <span>
+                            TOTAL
+                        </span>
+
+                        <strong id="totalFinal">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="acoes">
+
+                    <button
+                        class="btn-secundario"
+                        id="btnValoresVoltar"
+                    >
+                        ← Voltar
+                    </button>
+
+                    <button
+                        class="btn-principal"
+                        id="btnValoresContinuar"
+                    >
+                        Continuar →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 ETAPA 6 — PAGAMENTO
+            ================================== -->
+
+            <div
+                class="etapa"
+                id="etapaPagamento"
+            >
+
+                <h2>
+                    Como será o pagamento?
+                </h2>
+
+
+                <div class="campo">
+
+                    <label for="tipoPagamento">
+                        Forma de pagamento
+                    </label>
+
+                    <select id="tipoPagamento">
+
+                        <option value="">
+                            Selecione
+                        </option>
+
+                        <option value="À vista">
+                            À vista
+                        </option>
+
+                        <option value="Parcelado">
+                            Parcelado
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="validade">
+                        Validade do orçamento
+                    </label>
+
+                    <select id="validade">
+
+                        <option value="7">
+                            7 dias
+                        </option>
+
+                        <option value="15" selected>
+                            15 dias
+                        </option>
+
+                        <option value="30">
+                            30 dias
+                        </option>
+
+                        <option value="60">
+                            60 dias
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo campo-grande">
+
+                    <label for="observacoes">
+                        Observações
+                    </label>
+
+                    <textarea
+                        id="observacoes"
+                        placeholder="Condições, informações adicionais..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="acoes">
+
+                    <button
+                        class="btn-secundario"
+                        id="btnPagamentoVoltar"
+                    >
+                        ← Voltar
+                    </button>
+
+                    <button
+                        class="btn-principal"
+                        id="btnPagamentoContinuar"
+                    >
+                        Revisar orçamento →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 ETAPA 7 — REVISÃO
+            ================================== -->
+
+            <div
+                class="etapa"
+                id="etapaRevisao"
+            >
+
+                <h2>
+                    Revise seu orçamento
+                </h2>
+
+
+                <div
+                    id="resumoOrcamento"
+                    class="resumo-orcamento"
+                >
+
+                    <!-- JavaScript preencherá -->
+
+                </div>
+
+
+                <div class="acoes">
+
+                    <button
+                        class="btn-secundario"
+                        id="btnRevisaoVoltar"
+                    >
+                        ← Voltar
+                    </button>
+
+                    <button
+                        class="btn-principal"
+                        id="btnFinalizarOrcamento"
+                    >
+                        ✓ Finalizar orçamento
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="js/calculos.js"></script>
+
+    <script src="js/armazenamento.js"></script>
+
+    <script src="js/app.js"></script>
+
+
+</body>
+
+</html>
